@@ -35,17 +35,17 @@ def _find_repo_root() -> Path:
 
 def run(dry: bool = False) -> int:
     root = _find_repo_root()
-    # índice do dia para round-robin determinístico
-    from datetime import date
-    day_index = (date.today() - date(2026, 1, 1)).days
+    from github_autobot import journal
+    date_str = journal.today_str()
     bot = core.Bot(root, ALL_TASKS, AUTHOR_NAME, AUTHOR_EMAIL)
     if dry:
-        task = bot.pick_task(day_index)
+        task = bot.pick_task(date_str)
         print(f"[dry] repo={root}")
+        print(f"[dry] data={date_str}")
         print(f"[dry] próxima tarefa: {task.name if task else 'heartbeat'}")
         print(f"[dry] já aplicada: {task.applied(bot.repo) if task else 'n/a'}")
         return 0
-    result = bot.run(day_index)
+    result = bot.run(date_str)
     print("result:", result)
     return 0 if result.get("committed") or result.get("note") else 0
 
