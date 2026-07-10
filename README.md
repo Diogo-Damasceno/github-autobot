@@ -1,3 +1,6 @@
+[![CI](https://github.com/Diogo-Damasceno/github-autobot/actions/workflows/ci.yml/badge.svg)](https://github.com/Diogo-Damasceno/github-autobot/actions)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # github-autobot
 
 Bot leve que **melhora a si mesmo diariamente** e faz commits automáticos no GitHub.
