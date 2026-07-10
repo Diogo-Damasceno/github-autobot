@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "github-autobot"
+version = "0.1.0"
+description = "Bot que melhora a si mesmo diariamente e faz commits automaticos no GitHub (repositorio unico, seguro e verificado)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Diogo Damasceno", email = "mitszukyo@gmail.com" }]
+keywords = ["automation", "github", "bot", "ci", "self-improvement"]
+dependencies = []
+
+[project.scripts]
+github-autobot = "github_autobot:main_cli"
+
+[tool.setuptools]
+packages = ["github_autobot", "github_autobot.tasks"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
